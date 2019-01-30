@@ -6,7 +6,7 @@ $ tar xfvz logs.tar.gz
 $ openssl sha256 access.log.2018.txt error.log.2018.txt
 SHA256(access.log.2018.txt)= e5e8aed8cfa4bc9fc735e97d7acb4de3dec39eb9785a1dab6094e1c81fd320a3
 SHA256(error.log.2018.txt)= a66a609751a2f2efe72761e9ab039b8ace5b0db322ac10c733b5450c58d081d6
-[nimi ~ 20:56:06]$
+$
 ```
 
 Download the SQLite3 file:
