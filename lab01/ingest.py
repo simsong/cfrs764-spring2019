@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 ingest.py:
 
-Ingest the logfiles into the database
+Ingest the logfiles into the database.
+This program runs under Python2 or Python3
 """
 
 import os
@@ -90,7 +91,8 @@ if __name__ == "__main__":
             if not m:
                 print("Cannot parse line {}: {}".format(ll, line))
                 continue
-            date = datetime.datetime.strptime(m.group(4), '%d/%b/%Y:%H:%M:%S %z')
+            date_without_tz = m.group(4)[0:m.group(4).find(' ')]
+            date = datetime.datetime.strptime(date_without_tz, '%d/%b/%Y:%H:%M:%S')
             c.execute("INSERT INTO LOG "
                         "(ll,ipaddr,ipaddr_,ident,user,date,method,path,protocol,status,size,referrer,"
                         "useragent,line) "
@@ -100,13 +102,16 @@ if __name__ == "__main__":
                         m.group('path'), m.group('protocol'), m.group('status'), m.group('size'),
                         m.group('referrer'), m.group('useragent'), line.strip()])
             if ll % args.notify == 0:
-                frac = chars_read/file_length
-                elapsed = time.time() - t0
-                eta     = elapsed / frac - elapsed
-                print(f"{ll}   {frac*100.0:5.2f}%  (elapsed: {elapsed:.0f}; eta: {eta:.0f})")
+                frac = float(chars_read) / float(file_length)
+                if frac>0:
+                    elapsed = time.time() - t0
+                    eta     = elapsed / frac - elapsed
+                else:
+                    eta     = 0
+                print("%s   %5.2f  (elapsed: %5.0f; eta: %5.0f)" % (ll,frac*100.0,elapsed,eta))
                 conn.commit()
             if args.limit and ll >= args.limit:
-                print(f"Limit ({limit}) reached")
+                print("Limit ({}) reached".format(args.limit))
                 break
         conn.commit()
 
