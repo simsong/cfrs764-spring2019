@@ -169,6 +169,7 @@ Below is a list of questions. Each one has a code number. Turn in your answers i
 
 Q: What is the earliest date for a log message that appears in the logfiles?
 
+A:
 
 Q: In which log files this earliest date appear?
 [ ] fsck_hfs.log
@@ -184,49 +185,64 @@ Q: In which log files this earliest date appear?
 [ ] windowserver.log
 [ ] windowserver_last.log
 
+A:
 
-Q: What is the last date on which a log entry was made:
+Q: What is the last date on which any log entry was made. Please consider all of the log files and provide both the log file name and the date:g
 
+A:
 
 Q: change the time zone to UTC. What is the modification date of opendirectoryd.log.2?
 
+A:
 
 Q: What can we infer from these dates?
 
+A:
 
 Q: What is the `ls` option would print non-printable characters as a question mark?
 
+A:
 
 Q: Which ls option would print non-printable characters as their octal equivallents?
 
+A:
 
 Q: What is the option for the `cat` command that has it display non-printable characters?
 
+A:
 
 Q: What is a command that you could use to find out if there any files in the disk that have non-printable characters in their filenames? 
 
+A:
 
 Q: Are there any files on the tracy volume that have non-printable characters  in their filenames?
 
+A:
 
 Q: The application VirtualBox.app appears in the /Applications directory. What evidence is there is the logfiles (or elsewhere) that the VirtualBox program was run?
 
+A:
 
 Q: What are the 5 largest files in private/var/folders and what are they used for?
 
+A:
 
 Q: There are eight obvious sqlite3 databases in the /var/folders directories, apparently containing two different database types. Provide two of the filenames:
 
+A:
 
 Q: One of the SQLite3 databases contains a list of files. Find it and preprovide the files. What can you learn from this database?
 
+A:
 
 
 Q: The timestamps in the SQLite3 table `thumbnails` are in Apple Cocoa Core Data timestamp format. There is an [online converter](https://www.epochconverter.com/coredata) that will convert these timestamps to human-readable timestamps. For the file `/private/var/folders/15/j2xk5wls0c95jjx8f5h_00mh0000gn/C/com.apple.QuickLook.thumbnailcache/index.sqlite`, please provide the date of the first and the last thumbnail in GMT.
 
+A:
 
 
 
 Q: Extra credit: As of June 27, 2012, what was the previous semester's balance due at the Prufrock Preparatory School?
 
+A:
 
