@@ -32,7 +32,8 @@ Well, let's have at it.
 
 9. Make a copy of it using the `dd` command, as in:
 
-```$ sudo dd if=DEVICE of=DISKFILE.raw  bs=64k conv=noerror,sync
+```
+$ sudo dd if=DEVICE of=DISKFILE.raw  bs=64k conv=noerror,sync
 ```
    
 Where DEVICE is the name of the device (how do you find it?) and DIKSFILE.raw is your output file.
