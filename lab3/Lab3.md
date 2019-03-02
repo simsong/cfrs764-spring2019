@@ -101,19 +101,23 @@ Verify that they are installed with this command (it will take a while):
 volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --info | grep -i mac
 ```
 
+## Notes:
+1. Remember: when you use the Volatility command, you need to specify a profile!
+2. If you are unable to run the command without getting a permission error, use the `sudo` command to change the ownership of the files you downloaded to your current user. In general, you should not run programs as root unless you absolutely have to.
+
 ## What to hand in:
 
 Hand in a Microsoft Word file describing:
 - What you did.
 - Output from Volatility's `mac_psaux` showing your download command
 
-hint: try `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone -f <memory_file> ps_aux`
+hint: try `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux`
 
-then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone -f <memory_file> ps_aux | grep curl`
+then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux | grep curl`
 
 or:
 
-then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone -f <memory_file> ps_aux | grep 208.113.173.77`
+then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux | grep 208.113.173.77`
 
 - Output from Volatility's  `mac_netstat` showing the open TCP connection.
 
