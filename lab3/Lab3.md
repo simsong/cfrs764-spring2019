@@ -111,13 +111,13 @@ Hand in a Microsoft Word file describing:
 - What you did.
 - Output from Volatility's `mac_psaux` showing your download command
 
-hint: try `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux`
+hint: try `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> mac_psaux`
 
-then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux | grep curl`
+then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> mac_psaux | grep curl`
 
 or:
 
-then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> ps_aux | grep 208.113.173.77`
+then try: `volatility_2.6_mac64_standalone/volatility_2.6_mac64_standalone --profile=MacElCapitan_10_11_6_15G31x64 -f <memory_file> mac_psaux | grep 208.113.173.77`
 
 - Output from Volatility's  `mac_netstat` showing the open TCP connection.
 
