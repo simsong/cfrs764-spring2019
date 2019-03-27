@@ -13,14 +13,7 @@ NOTIFY_INTERVAL=1000
 
 import tydoc
 
-def dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
-
-
-def process(root):
+def process(root,nrows=5):
     scanned_dirs = 0
     scanned_files = 0
     for dirpath, dirnames, filenames in os.walk(root):
@@ -57,7 +50,7 @@ def process(root):
                     rows = c.fetchone()[0]
                     print("Table: {}  Rows: {}".format(name,rows))
                     print("")
-                    c.execute("SELECT * from {} LIMIT 5".format(name))
+                    c.execute("SELECT * from {} LIMIT {}".format(name,nrows))
                     doc.add_head([info[0] for info in c.description])
                     for row in c.fetchall():
                         doc.add_data([str(s)[0:20] for s in row])
@@ -70,8 +63,9 @@ def process(root):
 
 if __name__=="__main__":
     import argparse
-    parser = argparse.ArgumentParser(description='General customer report',
+    parser = argparse.ArgumentParser(description='Scan and Describe SQL databases',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("root",help="Where to start")
+    parser.add_argument("--nrows",help="Number of rows to print",type=int,default=5)
     args = parser.parse_args()
-    process(args.root)
+    process(args.root,nrows=args.nrows)
